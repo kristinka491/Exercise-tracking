@@ -61,6 +61,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-PintPlease/Pods
+Exercise\ tracking/Pods
 .DS_Store
 Breakpoints_v2.xcbkptlist
