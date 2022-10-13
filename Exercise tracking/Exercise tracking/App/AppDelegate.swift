@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "ExerciseScreen", bundle: nil)
+        let storyboard = UIStoryboard(name: "HomeScreen", bundle: nil)
 
-        let startVC = storyboard.instantiateViewController(withIdentifier: "exerciseScreen")
+        let startVC = storyboard.instantiateViewController(withIdentifier: "homeScreen")
 
         window?.rootViewController = UINavigationController(rootViewController: startVC)
         window?.makeKeyAndVisible()
