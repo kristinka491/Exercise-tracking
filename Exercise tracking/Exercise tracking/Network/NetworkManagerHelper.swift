@@ -8,6 +8,8 @@
 import Foundation
 import Moya
 
+let currentUserId = "1780538723"
+
 extension NetworkManager {
 
     func exercise(completion: ((ExercisesModel?, Error?) -> Void)?) {
@@ -15,5 +17,8 @@ extension NetworkManager {
         doRequest(target: MultiTarget(exerciseRequest), completion: completion)
     }
 
-
+    func workoutItem(completion: ((WorkoutListModel?, Error?) -> Void)?) {
+        let workoutItemRequest = ExerciseTracking.workoutItem
+        doRequest(target: MultiTarget(workoutItemRequest), completion: completion)
+    }
 }

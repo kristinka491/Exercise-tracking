@@ -10,12 +10,13 @@ import Moya
 
 enum ExerciseTracking {
     case exercise
+    case workoutItem
 }
 
 extension ExerciseTracking: TargetType {
 
     var baseURL: URL {
-        guard let url = URL(string: "https://sport.iamprofessional.dev") else {
+        guard let url = URL(string: "https://sport.iamprofessional.dev/api/") else {
             fatalError()
         }
         return url
@@ -24,7 +25,9 @@ extension ExerciseTracking: TargetType {
     var path: String {
         switch self {
         case .exercise:
-            return "/api/exercise"
+            return "exercise"
+        case .workoutItem:
+            return "workout-item"
         }
     }
 
@@ -34,14 +37,14 @@ extension ExerciseTracking: TargetType {
 
     var method: Moya.Method {
         switch self {
-        case .exercise:
+        case .exercise, .workoutItem:
             return .get
         }
     }
 
     var task: Task {
         switch self {
-        case .exercise:
+        case .exercise, .workoutItem:
             return .requestPlain
         }
     }

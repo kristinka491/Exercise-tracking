@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -15,16 +15,109 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rq1-nV-gX9">
+                                <rect key="frame" x="16" y="160.5" width="382" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Hgd-iz-m2T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WorkoutScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Hcd-hZ-5fW">
+                                <rect key="frame" x="57" y="227.5" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hcd-hZ-5fW" secondAttribute="height" multiplier="2:1" id="ifu-J3-iYE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please state the quantity of iterations:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhQ-fl-c08">
+                                <rect key="frame" x="16" y="427.5" width="382" height="17"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oCx-r9-qq5">
+                                <rect key="frame" x="16" y="484.5" width="382" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="a0c-8q-RcX"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="ttJ-bs-olj"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpd-4G-lfD">
+                                <rect key="frame" x="16" y="564.5" width="382" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Nw2-k6-wBg"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Save">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="HiraMinProN-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <buttonConfiguration key="configuration" style="tinted">
+                                    <backgroundConfiguration key="background" cornerRadius="21">
+                                        <color key="backgroundColor" red="0.59290337559999995" green="0.60699880390000005" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="strokeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Save changes">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="18" name="HiraMinProN-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gpd-4G-lfD" firstAttribute="top" secondItem="oCx-r9-qq5" secondAttribute="bottom" constant="40" id="3VS-FU-v1o"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Gpd-4G-lfD" secondAttribute="trailing" constant="16" id="3pH-MB-YRi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oCx-r9-qq5" secondAttribute="trailing" constant="16" id="8cF-5B-Uvp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rq1-nV-gX9" secondAttribute="trailing" constant="16" id="9TQ-1Y-UDY"/>
+                            <constraint firstItem="LhQ-fl-c08" firstAttribute="top" secondItem="Hcd-hZ-5fW" secondAttribute="bottom" constant="50" id="Ahv-0k-fRf"/>
+                            <constraint firstItem="rq1-nV-gX9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="BKz-Pb-HPn"/>
+                            <constraint firstItem="Gpd-4G-lfD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="D6f-fI-P3i"/>
+                            <constraint firstItem="Hcd-hZ-5fW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="57" id="JzN-0s-afZ"/>
+                            <constraint firstItem="oCx-r9-qq5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="KJe-Kx-7FQ"/>
+                            <constraint firstItem="LhQ-fl-c08" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ZOp-qc-G0Z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Hcd-hZ-5fW" secondAttribute="trailing" constant="57" id="aSL-Ud-n8t"/>
+                            <constraint firstItem="rq1-nV-gX9" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="0.4" id="evc-FI-i9Y"/>
+                            <constraint firstItem="Hcd-hZ-5fW" firstAttribute="top" secondItem="rq1-nV-gX9" secondAttribute="bottom" constant="30" id="oC3-ze-uA4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LhQ-fl-c08" secondAttribute="trailing" constant="16" id="pVb-Io-G6e"/>
+                            <constraint firstItem="oCx-r9-qq5" firstAttribute="top" secondItem="LhQ-fl-c08" secondAttribute="bottom" constant="40" id="v4e-PI-l5k"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="exerciseNameLabel" destination="rq1-nV-gX9" id="VQu-Vs-5OU"/>
+                        <outlet property="textField" destination="oCx-r9-qq5" id="f8a-hb-cYw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="47"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="46.875"/>
         </scene>
     </scenes>
     <resources>
+        <image name="WorkoutScreen" width="798" height="530"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

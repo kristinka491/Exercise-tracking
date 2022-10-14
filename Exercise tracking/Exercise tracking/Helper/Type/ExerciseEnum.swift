@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Exercise: String, Codable {
+enum Exercise: String, CaseIterable {
     case legsRaises = "legs_raises"
     case pullUps = "pull-ups"
     case pushUps = "push-ups"

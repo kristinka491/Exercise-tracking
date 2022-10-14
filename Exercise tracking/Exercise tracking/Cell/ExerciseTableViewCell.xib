@@ -40,7 +40,10 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mja-BW-zV6">
-                        <rect key="frame" x="177" y="50" width="55" height="20"/>
+                        <rect key="frame" x="177" y="50" width="127" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="64z-Cj-njt"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -55,7 +58,8 @@
                     <constraint firstItem="Mja-BW-zV6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="dst-CP-5Nn"/>
                     <constraint firstAttribute="trailing" secondItem="b8f-pY-Ajc" secondAttribute="trailing" constant="16" id="feg-NZ-R4X"/>
                     <constraint firstItem="o08-5z-05G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h6l-Od-P1r"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Mja-BW-zV6" secondAttribute="trailing" constant="72" id="nog-ho-i4N"/>
+                    <constraint firstAttribute="trailing" secondItem="Mja-BW-zV6" secondAttribute="trailing" constant="16" id="i7X-pU-Ec1"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Mja-BW-zV6" secondAttribute="bottom" constant="16" id="n0V-Kb-XcO"/>
                     <constraint firstAttribute="bottom" secondItem="o08-5z-05G" secondAttribute="bottom" id="tep-TH-T5b"/>
                     <constraint firstItem="zID-Tk-hmF" firstAttribute="leading" secondItem="o08-5z-05G" secondAttribute="trailing" constant="5" id="trf-eX-vcJ"/>
                     <constraint firstItem="b8f-pY-Ajc" firstAttribute="leading" secondItem="o08-5z-05G" secondAttribute="trailing" constant="50" id="v6x-ve-VA1"/>

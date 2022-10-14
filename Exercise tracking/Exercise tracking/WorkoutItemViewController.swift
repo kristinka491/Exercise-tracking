@@ -7,23 +7,22 @@
 
 import UIKit
 
-class WorkoutItemViewController: UIViewController {
+class WorkoutItemViewController: SetUpKeyboardViewController {
+
+    @IBOutlet weak var exerciseNameLabel: UILabel!
+
+    private var exerciseName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpLabel()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUp(with exerciseName: String) {
+        self.exerciseName = exerciseName
     }
-    */
 
+    private func setUpLabel() {
+        exerciseNameLabel.text = exerciseName
+    }
 }
