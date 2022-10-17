@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E7A864128F97BB20070A918 /* WorkoutItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A864028F97BB20070A918 /* WorkoutItemModel.swift */; };
 		8E7A864428F98A5C0070A918 /* SetUpKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A864328F98A5C0070A918 /* SetUpKeyboardViewController.swift */; };
+		8E7A864628FD6B430070A918 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A864528FD6B430070A918 /* StatusModel.swift */; };
 		8E9BCD9028F58C0500F97194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9BCD8F28F58C0500F97194 /* AppDelegate.swift */; };
 		8E9BCD9428F58C0500F97194 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9BCD9328F58C0500F97194 /* ExerciseViewController.swift */; };
 		8E9BCD9928F58C0900F97194 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9BCD9828F58C0900F97194 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		62B886022FEB01E1DBF8F1CF /* Pods-Exercise tracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exercise tracking.debug.xcconfig"; path = "Target Support Files/Pods-Exercise tracking/Pods-Exercise tracking.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7A864028F97BB20070A918 /* WorkoutItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutItemModel.swift; sourceTree = "<group>"; };
 		8E7A864328F98A5C0070A918 /* SetUpKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpKeyboardViewController.swift; sourceTree = "<group>"; };
+		8E7A864528FD6B430070A918 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		8E9BCD8C28F58C0500F97194 /* Exercise tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exercise tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9BCD8F28F58C0500F97194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E9BCD9328F58C0500F97194 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				8ED984A828F6C23D00D0C7E1 /* ApiError.swift */,
 				8ED984AC28F6C3D100D0C7E1 /* ExercisesModel.swift */,
 				8E7A864028F97BB20070A918 /* WorkoutItemModel.swift */,
+				8E7A864528FD6B430070A918 /* StatusModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				8E9BCD9428F58C0500F97194 /* ExerciseViewController.swift in Sources */,
 				8E9BCDA528F58F2900F97194 /* LoaderExtension+UIViewController.swift in Sources */,
 				8ED984BD28F6D61A00D0C7E1 /* ExerciseTableViewCell.swift in Sources */,
+				8E7A864628FD6B430070A918 /* StatusModel.swift in Sources */,
 				8ED984A728F6C21900D0C7E1 /* HttpErrorValidator.swift in Sources */,
 				8ED984B228F6CA3200D0C7E1 /* WorkoutItemViewController.swift in Sources */,
 				8E9BCDA828F5911600F97194 /* ExerciseTracking.swift in Sources */,

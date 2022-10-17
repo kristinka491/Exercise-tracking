@@ -48,7 +48,7 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="ttJ-bs-olj"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpd-4G-lfD">
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpd-4G-lfD">
                                 <rect key="frame" x="16" y="564.5" width="382" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Nw2-k6-wBg"/>
@@ -81,6 +81,9 @@
                                     </attributedString>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedSaveChangesButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rja-tn-daP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -103,14 +106,16 @@
                             <constraint firstItem="oCx-r9-qq5" firstAttribute="top" secondItem="LhQ-fl-c08" secondAttribute="bottom" constant="40" id="v4e-PI-l5k"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ps1-gX-HVy"/>
                     <connections>
                         <outlet property="exerciseNameLabel" destination="rq1-nV-gX9" id="VQu-Vs-5OU"/>
-                        <outlet property="textField" destination="oCx-r9-qq5" id="f8a-hb-cYw"/>
+                        <outlet property="saveChangesButton" destination="Gpd-4G-lfD" id="Vo2-F1-WDQ"/>
+                        <outlet property="textField" destination="oCx-r9-qq5" id="1Sh-S7-9tG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.086956521739133" y="46.875"/>
+            <point key="canvasLocation" x="884.05797101449286" y="46.875"/>
         </scene>
     </scenes>
     <resources>

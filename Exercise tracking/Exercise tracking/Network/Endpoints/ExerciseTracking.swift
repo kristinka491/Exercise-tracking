@@ -11,6 +11,7 @@ import Moya
 enum ExerciseTracking {
     case exercise
     case workoutItem
+    case workout(iterationsCount: Int, timeStamp: Int, name: String)
 }
 
 extension ExerciseTracking: TargetType {
@@ -26,7 +27,7 @@ extension ExerciseTracking: TargetType {
         switch self {
         case .exercise:
             return "exercise"
-        case .workoutItem:
+        case .workoutItem, .workout:
             return "workout-item"
         }
     }
@@ -39,6 +40,8 @@ extension ExerciseTracking: TargetType {
         switch self {
         case .exercise, .workoutItem:
             return .get
+        case .workout:
+            return .post
         }
     }
 
@@ -46,6 +49,16 @@ extension ExerciseTracking: TargetType {
         switch self {
         case .exercise, .workoutItem:
             return .requestPlain
+        case .workout(let iterationsCount,
+                      let timeStamp,
+                      let name):
+            var params = [String: Any]()
+            params["name"] = name
+            params["timestamp"] = timeStamp
+            params["iterations_count"] = iterationsCount
+            params["pause_before_item"] = 0
+            params["user_id"] = currentUserId
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }
 
