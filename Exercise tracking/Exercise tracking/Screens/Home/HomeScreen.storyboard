@@ -30,7 +30,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO1-aP-EOz">
-                                <rect key="frame" x="20" y="352" width="374" height="17"/>
+                                <rect key="frame" x="20" y="352" width="49.5" height="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
@@ -178,6 +178,24 @@
                                     <action selector="tappedGetStartedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ijC-5e-oaB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-eE-DhJ">
+                                <rect key="frame" x="269.5" y="352" width="124.5" height="28"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Show Statistics"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Show Statistics">
+                                            <attributes>
+                                                <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="14" name="HiraMinProN-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedShowSatisticsButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7YM-Yk-Dan"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -187,12 +205,14 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sIV-dY-Cqa" secondAttribute="trailing" constant="20" id="Ent-Ks-HgL"/>
                             <constraint firstItem="sIV-dY-Cqa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="Eo7-w5-Pac"/>
                             <constraint firstItem="MwD-Vg-gs7" firstAttribute="top" secondItem="iO1-aP-EOz" secondAttribute="bottom" constant="30" id="IAm-Qd-mo5"/>
+                            <constraint firstItem="3wp-eE-DhJ" firstAttribute="trailing" secondItem="sIV-dY-Cqa" secondAttribute="trailing" id="Kfs-xD-YDv"/>
                             <constraint firstItem="sIV-dY-Cqa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="MlG-cx-j8F"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vsw-Dj-Rbg" secondAttribute="trailing" constant="57" id="NYS-We-dsm"/>
                             <constraint firstItem="NtH-Ob-ZMO" firstAttribute="top" secondItem="iIb-TL-Zou" secondAttribute="bottom" constant="20" id="PF8-Er-7cj"/>
+                            <constraint firstItem="3wp-eE-DhJ" firstAttribute="leading" secondItem="iO1-aP-EOz" secondAttribute="trailing" constant="200" id="QQx-an-Ijf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iIb-TL-Zou" secondAttribute="trailing" constant="16" id="Tvb-Fz-Eap"/>
+                            <constraint firstItem="3wp-eE-DhJ" firstAttribute="top" secondItem="vsw-Dj-Rbg" secondAttribute="bottom" constant="40" id="YST-E8-DFC"/>
                             <constraint firstItem="iIb-TL-Zou" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ZO8-RC-9vW"/>
-                            <constraint firstItem="iO1-aP-EOz" firstAttribute="trailing" secondItem="sIV-dY-Cqa" secondAttribute="trailing" id="dmc-VN-uMV"/>
                             <constraint firstItem="vsw-Dj-Rbg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="57" id="g3r-nl-3Ci"/>
                             <constraint firstItem="MwD-Vg-gs7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="mix-Q9-E2d"/>
                             <constraint firstItem="iO1-aP-EOz" firstAttribute="leading" secondItem="sIV-dY-Cqa" secondAttribute="leading" id="p1G-tw-LnW"/>

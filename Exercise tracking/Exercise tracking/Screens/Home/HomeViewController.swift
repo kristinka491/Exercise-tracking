@@ -32,6 +32,12 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(exerciseScreenViewController, animated: true)
     }
 
+    @IBAction func tappedShowSatisticsButton(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "WorkoutStatisticsScreen", bundle: nil)
+        let workoutStatisticsViewController = storyBoard.instantiateViewController(withIdentifier: "workoutStatisticsScreen") as! WorkoutStatisticsViewController
+        navigationController?.pushViewController(workoutStatisticsViewController, animated: true)
+    }
+
     private func loadData() {
         let alertVC = showLoader()
         networkManager.workoutItem { [weak self] model, _ in
@@ -41,7 +47,9 @@ class HomeViewController: UIViewController {
     }
 
     private func setUpLabel(with models: [WorkoutItemModel]?) {
-        if let currentUserWorkoutItems = models?.filter({ $0.userId == currentUserId }) {
+        let calendar = Calendar.current
+
+        if let currentUserWorkoutItems = models?.filter({ $0.userId == currentUserId && calendar.isDateInToday(Date(timeIntervalSince1970: TimeInterval($0.timestamp ?? 0))) }) {
             Exercise.allCases.forEach { exercise in
                 let exerciseIteration = currentUserWorkoutItems.filter { ($0.name ?? "") == exercise.rawValue }
                                                                 .reduce(0, { $0 + ($1.iterationsCount ?? 0) })
