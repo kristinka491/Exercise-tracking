@@ -25,9 +25,10 @@ struct WorkoutItemModel: Codable {
     var iterationsCount: Int?
     var timestamp: Int?
     var userId: String?
+    var id: Int?
 
     private enum CodingKeys: String, CodingKey {
-        case name, iterationsCount = "iterations_count", timestamp, userId = "user_id"
+        case name, iterationsCount = "iterations_count", timestamp, userId = "user_id", id = "pk"
     }
 
     init(from decoder: Decoder) throws {
@@ -36,5 +37,6 @@ struct WorkoutItemModel: Codable {
         iterationsCount = try container.decodeIfPresent(Int.self, forKey: .iterationsCount)
         timestamp = try container.decodeIfPresent(Int.self, forKey: .timestamp)
         userId = try container.decodeIfPresent(String.self, forKey: .userId)
+        id = try container.decodeIfPresent(Int.self, forKey: .id)
     }
 }

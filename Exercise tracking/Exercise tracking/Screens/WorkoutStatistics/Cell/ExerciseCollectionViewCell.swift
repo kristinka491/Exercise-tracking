@@ -17,8 +17,8 @@ class ExerciseCollectionViewCell: UICollectionViewCell {
     }
 
     func setUp(_ exerciseName: String) {
-        exerciseNameLabel.text = exerciseName
-        exerciseImageView.image = Exercise(rawValue: exerciseName)?.image
+        exerciseNameLabel.text = Exercise(rawValue: exerciseName)?.newNames
+        exerciseImageView.image = Exercise(rawValue: exerciseName)?.collectionImage
     }
 
 }

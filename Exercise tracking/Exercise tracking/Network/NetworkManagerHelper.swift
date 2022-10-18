@@ -31,4 +31,9 @@ extension NetworkManager {
                                                       name: name)
         doRequest(target: MultiTarget(workoutRequest), completion: completion)
     }
+
+    func deleteWorkout(id: Int, completion: ((StatusModel?, Error?) -> Void)?) {
+        let deleteWorkoutRequest = ExerciseTracking.deleteWorkout(id: id)
+        doRequest(target: MultiTarget(deleteWorkoutRequest), completion: completion)
+    }
 }

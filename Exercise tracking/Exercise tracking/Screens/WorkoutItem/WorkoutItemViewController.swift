@@ -41,7 +41,8 @@ class WorkoutItemViewController: SetUpKeyboardViewController {
     }
 
     private func setUpLabel() {
-        exerciseNameLabel.text = exerciseName
+        exerciseNameLabel.text = Exercise(rawValue: exerciseName ?? "")?.newNames
+
     }
 
     private func createWorkoutItem() {

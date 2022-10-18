@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,19 +18,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzL-cO-pfZ">
-                        <rect key="frame" x="16" y="16" width="334" height="0.0"/>
+                        <rect key="frame" x="16" y="16" width="334" height="60"/>
                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" systemColor="systemBrownColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity of iterations: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWC-V6-tLe">
-                        <rect key="frame" x="16" y="26" width="192.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity of iterations: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWC-V6-tLe" userLabel="Quantity of iterations:">
+                        <rect key="frame" x="16" y="86" width="192.5" height="18"/>
                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klR-Cb-22w">
-                        <rect key="frame" x="208.5" y="26" width="0.0" height="0.0"/>
+                        <rect key="frame" x="208.5" y="86" width="0.0" height="18"/>
                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,10 +38,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="klR-Cb-22w" firstAttribute="top" secondItem="KzL-cO-pfZ" secondAttribute="bottom" constant="10" id="3Xq-Gv-xdC"/>
+                    <constraint firstAttribute="bottom" secondItem="klR-Cb-22w" secondAttribute="bottom" constant="16" id="Ig4-4x-Q6B"/>
                     <constraint firstItem="KzL-cO-pfZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="KYs-DE-Xzh"/>
                     <constraint firstAttribute="trailing" secondItem="KzL-cO-pfZ" secondAttribute="trailing" constant="16" id="U2l-Ho-2km"/>
                     <constraint firstItem="FWC-V6-tLe" firstAttribute="top" secondItem="KzL-cO-pfZ" secondAttribute="bottom" constant="10" id="WPS-Gd-9Gq"/>
                     <constraint firstItem="klR-Cb-22w" firstAttribute="leading" secondItem="FWC-V6-tLe" secondAttribute="trailing" id="ZQt-6q-Cyv"/>
+                    <constraint firstAttribute="bottom" secondItem="FWC-V6-tLe" secondAttribute="bottom" constant="16" id="qpE-Gl-VsN"/>
                     <constraint firstItem="FWC-V6-tLe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="set-R4-UWb"/>
                     <constraint firstItem="KzL-cO-pfZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="tVB-9R-wrJ"/>
                 </constraints>
@@ -53,4 +56,9 @@
             <point key="canvasLocation" x="169.56521739130437" y="78.348214285714278"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
