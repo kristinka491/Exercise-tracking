@@ -17,23 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rq1-nV-gX9">
-                                <rect key="frame" x="16" y="114.5" width="382" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Hgd-iz-m2T"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="76" width="382" height="36"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WorkoutScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Hcd-hZ-5fW">
-                                <rect key="frame" x="57" y="184.5" width="300" height="300"/>
+                                <rect key="frame" x="57" y="142" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="4N1-RR-faR"/>
                                     <constraint firstAttribute="width" secondItem="Hcd-hZ-5fW" secondAttribute="height" multiplier="1:1" id="ifu-J3-iYE"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oCx-r9-qq5">
-                                <rect key="frame" x="16" y="565.5" width="382" height="40"/>
+                                <rect key="frame" x="16" y="523" width="382" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="a0c-8q-RcX"/>
                                 </constraints>
@@ -43,45 +39,24 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="ttJ-bs-olj"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpd-4G-lfD">
-                                <rect key="frame" x="16" y="645.5" width="382" height="65"/>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpd-4G-lfD">
+                                <rect key="frame" x="16" y="603" width="382" height="65"/>
+                                <color key="backgroundColor" red="0.36187240479999999" green="0.58482277390000004" blue="0.27888545390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="Nw2-k6-wBg"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Save">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="HiraMinProN-W3"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <state key="normal" title="Save changes">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="tinted">
-                                    <backgroundConfiguration key="background" cornerRadius="21">
-                                        <color key="backgroundColor" red="0.36187240479999999" green="0.58482277390000004" blue="0.27888545390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="strokeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Save changes">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name="HiraMinProN-W3"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tappedSaveChangesButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rja-tn-daP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please state the quantity of iterations:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhQ-fl-c08">
-                                <rect key="frame" x="16" y="504.5" width="382" height="21"/>
+                                <rect key="frame" x="16" y="462" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -90,6 +65,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gpd-4G-lfD" secondAttribute="bottom" constant="16" id="1LO-ii-HJW"/>
                             <constraint firstItem="Gpd-4G-lfD" firstAttribute="top" secondItem="oCx-r9-qq5" secondAttribute="bottom" constant="40" id="3VS-FU-v1o"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Gpd-4G-lfD" secondAttribute="trailing" constant="16" id="3pH-MB-YRi"/>
                             <constraint firstItem="LhQ-fl-c08" firstAttribute="top" secondItem="Hcd-hZ-5fW" secondAttribute="bottom" constant="20" id="5b0-L0-s22"/>
@@ -100,11 +76,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Hcd-hZ-5fW" secondAttribute="trailing" constant="57" id="ERz-zh-G3m"/>
                             <constraint firstItem="oCx-r9-qq5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="KJe-Kx-7FQ"/>
                             <constraint firstItem="Hcd-hZ-5fW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="57" id="Psv-cl-DL9"/>
+                            <constraint firstItem="oCx-r9-qq5" firstAttribute="top" secondItem="LhQ-fl-c08" secondAttribute="bottom" priority="999" constant="40" id="VnI-5C-cbc"/>
                             <constraint firstItem="LhQ-fl-c08" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ZOp-qc-G0Z"/>
-                            <constraint firstItem="rq1-nV-gX9" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="0.3" id="evc-FI-i9Y"/>
                             <constraint firstItem="Hcd-hZ-5fW" firstAttribute="top" secondItem="rq1-nV-gX9" secondAttribute="bottom" constant="30" id="oC3-ze-uA4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LhQ-fl-c08" secondAttribute="trailing" constant="16" id="pVb-Io-G6e"/>
-                            <constraint firstItem="oCx-r9-qq5" firstAttribute="top" secondItem="LhQ-fl-c08" secondAttribute="bottom" constant="40" id="v4e-PI-l5k"/>
+                            <constraint firstItem="rq1-nV-gX9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="tMe-75-9Sf"/>
+                            <constraint firstItem="oCx-r9-qq5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LhQ-fl-c08" secondAttribute="bottom" constant="20" id="v4e-PI-l5k"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ps1-gX-HVy"/>
@@ -121,9 +98,6 @@
     </scenes>
     <resources>
         <image name="WorkoutScreen" width="798" height="530"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

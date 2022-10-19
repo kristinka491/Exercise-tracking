@@ -99,6 +99,14 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "WorkoutScreen", bundle: nil)
+        if let workoutItemViewController = storyBoard.instantiateViewController(withIdentifier: "workoutScreen") as? WorkoutItemViewController {
+            workoutItemViewController.setUp(with: filteredListOfExercises[indexPath.row], typeOfController: .edit)
+            navigationController?.pushViewController(workoutItemViewController, animated: true)
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exerciseCollectionCell", for: indexPath) as? ExerciseCollectionViewCell {
             cell.setUp(exercises[indexPath.row])

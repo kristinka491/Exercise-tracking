@@ -52,7 +52,7 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "WorkoutScreen", bundle: nil)
         if let workoutItemViewController = storyBoard.instantiateViewController(withIdentifier: "workoutScreen") as? WorkoutItemViewController {
-            workoutItemViewController.setUp(with: exercises[indexPath.row])
+            workoutItemViewController.setUp(with: exercises[indexPath.row], typeOfController: .add)
             navigationController?.pushViewController(workoutItemViewController, animated: true)
         }
     }

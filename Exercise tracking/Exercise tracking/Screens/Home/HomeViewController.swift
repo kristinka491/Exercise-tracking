@@ -9,7 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var myView: UIView!
     @IBOutlet weak var legsRaisesLabel: UILabel!
     @IBOutlet weak var pullUpsLabel: UILabel!
     @IBOutlet weak var pushUpsLabel: UILabel!
