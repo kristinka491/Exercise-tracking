@@ -21,17 +21,28 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
     private let spaceBetweenCells = 0
     private let screenWidth = UIScreen.main.bounds.width
     private var selectedExercise: String?
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
         setUpCollectionView()
         loadCollectionViewData()
+        refreshTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadTableViewData()
+    }
+
+    private func refreshTableView() {
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        self.loadTableViewData()
     }
 
     private func loadCollectionViewData() {
@@ -48,6 +59,7 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
         let alertVC = showLoader()
         networkManager.workoutItem { [weak self] model, _ in
             self?.dismissLoader(alert: alertVC)
+            self?.refreshControl.endRefreshing()
             self?.listOfExercises = model?.list?.sorted(by: { $0.timestamp ?? 0 > $1.timestamp ?? 0 }).filter { $0.userId == currentUserId } ?? []
             if let selectedExercise = self?.selectedExercise {
                 self?.filteredListOfExercises = self?.listOfExercises.filter { $0.name == selectedExercise } ?? []
