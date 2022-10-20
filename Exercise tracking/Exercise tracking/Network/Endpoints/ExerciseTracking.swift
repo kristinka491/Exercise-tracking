@@ -13,6 +13,7 @@ enum ExerciseTracking {
     case workoutItem
     case workout(iterationsCount: Int, timeStamp: Int, name: String)
     case deleteWorkout(id: Int)
+    case updateWorkout(model: WorkoutItemModel)
 }
 
 extension ExerciseTracking: TargetType {
@@ -32,6 +33,8 @@ extension ExerciseTracking: TargetType {
             return "workout-item"
         case .deleteWorkout(let id):
             return "workout-item/\(id)"
+        case .updateWorkout(let model):
+            return "workout-item/\(model.id ?? 0)"
         }
     }
 
@@ -43,7 +46,7 @@ extension ExerciseTracking: TargetType {
         switch self {
         case .exercise, .workoutItem:
             return .get
-        case .workout:
+        case .workout, .updateWorkout:
             return .post
         case .deleteWorkout:
             return .delete
@@ -64,6 +67,15 @@ extension ExerciseTracking: TargetType {
             params["pause_before_item"] = 0
             params["user_id"] = currentUserId
             
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        case .updateWorkout(let model):
+            var params = [String: Any]()
+            params["name"] = model.name
+            params["timestamp"] = model.timestamp
+            params["iterations_count"] = model.iterationsCount
+            params["pause_before_item"] = 0
+            params["user_id"] = currentUserId
+
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }

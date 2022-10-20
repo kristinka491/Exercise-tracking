@@ -20,12 +20,18 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
     private let numberOfCellsInRow = 2
     private let spaceBetweenCells = 0
     private let screenWidth = UIScreen.main.bounds.width
+    private var selectedExercise: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
         setUpCollectionView()
         loadCollectionViewData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadTableViewData()
     }
 
     private func loadCollectionViewData() {
@@ -43,6 +49,10 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
         networkManager.workoutItem { [weak self] model, _ in
             self?.dismissLoader(alert: alertVC)
             self?.listOfExercises = model?.list?.sorted(by: { $0.timestamp ?? 0 > $1.timestamp ?? 0 }).filter { $0.userId == currentUserId } ?? []
+            if let selectedExercise = self?.selectedExercise {
+                self?.filteredListOfExercises = self?.listOfExercises.filter { $0.name == selectedExercise } ?? []
+                self?.tableView.reloadData()
+            }
         }
     }
 
@@ -125,7 +135,7 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedExercise = exercises[indexPath.row]
+        selectedExercise = exercises[indexPath.row]
         filteredListOfExercises = listOfExercises.filter { $0.name == selectedExercise }
         tableView.reloadData()
     }

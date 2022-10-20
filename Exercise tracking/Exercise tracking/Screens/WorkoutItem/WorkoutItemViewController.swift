@@ -30,7 +30,11 @@ class WorkoutItemViewController: SetUpKeyboardViewController {
     }
 
     @IBAction func tappedSaveChangesButton(_ sender: UIButton) {
-        createWorkoutItem()
+        if typeOfController == .add {
+            createWorkoutItem()
+        } else {
+            updateWorkoutItem()
+        }
     }
 
     func setUp(with workoutItemModel: WorkoutItemModel, typeOfController: TypeOfController) {
@@ -87,6 +91,22 @@ class WorkoutItemViewController: SetUpKeyboardViewController {
             self?.dismissLoader(alert: alertVC)
             if model?.status == "ok" {
                 self?.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
+
+    private func updateWorkoutItem() {
+        guard let numberOfIterations = Int(textField.text ?? ""),
+                var workoutItemModel = workoutItemModel else {
+            return
+        }
+        workoutItemModel.iterationsCount = numberOfIterations
+
+        let alertVC = showLoader()
+        networkManager.updateWorkout(model: workoutItemModel) { [weak self] model, _ in
+            self?.dismissLoader(alert: alertVC)
+            if model?.status == "ok" {
+                self?.navigationController?.popViewController(animated: true)
             }
         }
     }
