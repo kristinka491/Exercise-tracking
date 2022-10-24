@@ -7,21 +7,21 @@
 
 import UIKit
 
-class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+class WorkoutStatisticsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    private var exercises = [String]()
-    private var listOfExercises = [WorkoutItemModel]()
-    private var filteredListOfExercises = [WorkoutItemModel]()
+
     private let networkManager = NetworkManager.shared
     private let numberOfCellsInRow = 2
     private let spaceBetweenCells = 0
     private let screenWidth = UIScreen.main.bounds.width
-    private var selectedExercise: String?
     private let refreshControl = UIRefreshControl()
+    private var exercises = [String]()
+    private var listOfExercises = [WorkoutItemModel]()
+    private var filteredListOfExercises = [WorkoutItemModel]()
+    private var selectedExercise: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +56,7 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
     }
 
     private func loadTableViewData() {
-        let alertVC = showLoader()
-        networkManager.workoutItem { [weak self] model, _ in
-            self?.dismissLoader(alert: alertVC)
+        networkManager.workoutItems { [weak self] model, _ in
             self?.refreshControl.endRefreshing()
             self?.listOfExercises = model?.list?.sorted(by: { $0.timestamp ?? 0 > $1.timestamp ?? 0 }).filter { $0.userId == currentUserId } ?? []
             if let selectedExercise = self?.selectedExercise {
@@ -92,13 +90,19 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
     }
 
     private func setUpCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        collectionView.delegate = self
+        collectionView.dataSource = self
         collectionView.collectionViewLayout = layout
         collectionView.register(UINib(nibName: "ExerciseCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "exerciseCollectionCell")
     }
+}
+
+// MARK: -
+// MARK: - UITableViewDelegate
+
+extension WorkoutStatisticsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredListOfExercises.count
@@ -128,6 +132,12 @@ class WorkoutStatisticsViewController: UIViewController, UITableViewDelegate, UI
             navigationController?.pushViewController(workoutItemViewController, animated: true)
         }
     }
+}
+
+// MARK: -
+// MARK: - UICollectionViewDelegate
+
+extension WorkoutStatisticsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exerciseCollectionCell", for: indexPath) as? ExerciseCollectionViewCell {

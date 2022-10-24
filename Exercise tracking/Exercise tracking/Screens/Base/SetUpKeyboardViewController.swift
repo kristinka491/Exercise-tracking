@@ -33,7 +33,7 @@ class SetUpKeyboardViewController: UIViewController {
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    @objc func keyboardWillShow(notification: NSNotification) {
+    @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardFrame = view.convert(keyboardSize, from: nil)
             if let textField = textField,
@@ -44,7 +44,7 @@ class SetUpKeyboardViewController: UIViewController {
         }
     }
 
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc private func keyboardWillHide(notification: NSNotification) {
         if view.frame.origin.y != 0 {
             view.frame.origin.y = 0
         }

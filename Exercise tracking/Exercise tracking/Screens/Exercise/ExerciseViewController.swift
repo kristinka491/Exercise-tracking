@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class ExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ExerciseViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -35,7 +35,12 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ExerciseTableViewCell", bundle: nil), forCellReuseIdentifier: "exerciseCell")
     }
+}
 
+// MARK: -
+// MARK: - UITableViewDelegate
+
+extension ExerciseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exercises.count
     }
@@ -52,7 +57,7 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "WorkoutScreen", bundle: nil)
         if let workoutItemViewController = storyBoard.instantiateViewController(withIdentifier: "workoutScreen") as? WorkoutItemViewController {
-            workoutItemViewController.setUp(with: exercises[indexPath.row], typeOfController: .add)
+            workoutItemViewController.setUp(with: WorkoutItemModel(exerciseName: exercises[indexPath.row]), typeOfController: .add)
             navigationController?.pushViewController(workoutItemViewController, animated: true)
         }
     }

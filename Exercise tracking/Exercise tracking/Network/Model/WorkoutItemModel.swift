@@ -31,6 +31,10 @@ struct WorkoutItemModel: Codable {
         case name, iterationsCount = "iterations_count", timestamp, userId = "user_id", id = "pk"
     }
 
+    init(exerciseName: String?) {
+        name = exerciseName
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decodeIfPresent(String.self, forKey: .name)

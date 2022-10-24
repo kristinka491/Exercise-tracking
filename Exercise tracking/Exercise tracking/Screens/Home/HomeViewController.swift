@@ -25,13 +25,13 @@ class HomeViewController: UIViewController {
         loadData()
     }
 
-    @IBAction func tappedGetStartedButton(_ sender: UIButton) {
+    @IBAction private func tappedGetStartedButton(_ sender: UIButton) {
         let storyBoard = UIStoryboard(name: "ExerciseScreen", bundle: nil)
         let exerciseScreenViewController = storyBoard.instantiateViewController(withIdentifier: "exerciseScreen") as! ExerciseViewController
         navigationController?.pushViewController(exerciseScreenViewController, animated: true)
     }
 
-    @IBAction func tappedShowSatisticsButton(_ sender: UIButton) {
+    @IBAction private func tappedShowSatisticsButton(_ sender: UIButton) {
         let storyBoard = UIStoryboard(name: "WorkoutStatisticsScreen", bundle: nil)
         let workoutStatisticsViewController = storyBoard.instantiateViewController(withIdentifier: "workoutStatisticsScreen") as! WorkoutStatisticsViewController
         navigationController?.pushViewController(workoutStatisticsViewController, animated: true)
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
 
     private func loadData() {
         let alertVC = showLoader()
-        networkManager.workoutItem { [weak self] model, _ in
+        networkManager.workoutItems { [weak self] model, _ in
             self?.dismissLoader(alert: alertVC)
             self?.setUpLabel(with: model?.list)
         }

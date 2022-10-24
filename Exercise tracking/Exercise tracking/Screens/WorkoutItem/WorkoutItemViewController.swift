@@ -17,7 +17,6 @@ class WorkoutItemViewController: SetUpKeyboardViewController {
         case edit
     }
 
-    private var exerciseName: String?
     private let networkManager = NetworkManager.shared
     private var typeOfController: TypeOfController = .add
     private var workoutItemModel: WorkoutItemModel?
@@ -39,12 +38,6 @@ class WorkoutItemViewController: SetUpKeyboardViewController {
 
     func setUp(with workoutItemModel: WorkoutItemModel, typeOfController: TypeOfController) {
         self.workoutItemModel = workoutItemModel
-        self.exerciseName = workoutItemModel.name
-        self.typeOfController = typeOfController
-    }
-
-    func setUp(with exerciseName: String, typeOfController: TypeOfController) {
-        self.exerciseName = exerciseName
         self.typeOfController = typeOfController
     }
 
@@ -75,19 +68,19 @@ class WorkoutItemViewController: SetUpKeyboardViewController {
     }
 
     private func setUpLabel() {
-        exerciseNameLabel.text = Exercise(rawValue: exerciseName ?? "")?.newNames
+        exerciseNameLabel.text = Exercise(rawValue: workoutItemModel?.name ?? "")?.newNames
     }
 
     private func createWorkoutItem() {
-        guard let name = exerciseName,
-              let numberOfIterations = Int(textField.text ?? "") else {
-                  return
-              }
+        guard let numberOfIterations = Int(textField.text ?? ""),
+            var workoutItemModel = workoutItemModel else {
+            return
+        }
+        workoutItemModel.timestamp = Int(Date().timeIntervalSince1970)
+        workoutItemModel.iterationsCount = numberOfIterations
 
         let alertVC = showLoader()
-        networkManager.workout(name: name,
-                               iterationsCount: numberOfIterations,
-                               timeStamp: Int(Date().timeIntervalSince1970)) { [weak self] model, _ in
+        networkManager.createWorkout(model: workoutItemModel) { [weak self] model, _ in
             self?.dismissLoader(alert: alertVC)
             if model?.status == "ok" {
                 self?.navigationController?.popToRootViewController(animated: true)
@@ -97,7 +90,7 @@ class WorkoutItemViewController: SetUpKeyboardViewController {
 
     private func updateWorkoutItem() {
         guard let numberOfIterations = Int(textField.text ?? ""),
-                var workoutItemModel = workoutItemModel else {
+              var workoutItemModel = workoutItemModel else {
             return
         }
         workoutItemModel.iterationsCount = numberOfIterations

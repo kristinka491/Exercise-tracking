@@ -17,18 +17,14 @@ extension NetworkManager {
         doRequest(target: MultiTarget(exerciseRequest), completion: completion)
     }
 
-    func workoutItem(completion: ((WorkoutListModel?, Error?) -> Void)?) {
+    func workoutItems(completion: ((WorkoutListModel?, Error?) -> Void)?) {
         let workoutItemRequest = ExerciseTracking.workoutItem
         doRequest(target: MultiTarget(workoutItemRequest), completion: completion)
     }
 
-    func workout(name: String,
-                 iterationsCount: Int,
-                 timeStamp: Int,
+    func createWorkout(model: WorkoutItemModel,
                  completion: ((StatusModel?, Error?) -> Void)?) {
-        let workoutRequest = ExerciseTracking.workout(iterationsCount: iterationsCount,
-                                                      timeStamp: timeStamp,
-                                                      name: name)
+        let workoutRequest = ExerciseTracking.createWorkout(model: model)
         doRequest(target: MultiTarget(workoutRequest), completion: completion)
     }
 

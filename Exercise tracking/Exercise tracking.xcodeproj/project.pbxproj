@@ -252,11 +252,11 @@
 		8ED984A328F6C1DF00D0C7E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8ED984A428F6C1ED00D0C7E1 /* LResponse.swift */,
-				8ED984A828F6C23D00D0C7E1 /* ApiError.swift */,
+				8E7A864528FD6B430070A918 /* StatusModel.swift */,
 				8ED984AC28F6C3D100D0C7E1 /* ExercisesModel.swift */,
 				8E7A864028F97BB20070A918 /* WorkoutItemModel.swift */,
-				8E7A864528FD6B430070A918 /* StatusModel.swift */,
+				8ED984A428F6C1ED00D0C7E1 /* LResponse.swift */,
+				8ED984A828F6C23D00D0C7E1 /* ApiError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

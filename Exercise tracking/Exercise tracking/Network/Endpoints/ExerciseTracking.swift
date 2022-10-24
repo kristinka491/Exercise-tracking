@@ -11,7 +11,7 @@ import Moya
 enum ExerciseTracking {
     case exercise
     case workoutItem
-    case workout(iterationsCount: Int, timeStamp: Int, name: String)
+    case createWorkout(model: WorkoutItemModel)
     case deleteWorkout(id: Int)
     case updateWorkout(model: WorkoutItemModel)
 }
@@ -29,7 +29,7 @@ extension ExerciseTracking: TargetType {
         switch self {
         case .exercise:
             return "exercise"
-        case .workoutItem, .workout:
+        case .workoutItem, .createWorkout:
             return "workout-item"
         case .deleteWorkout(let id):
             return "workout-item/\(id)"
@@ -46,7 +46,7 @@ extension ExerciseTracking: TargetType {
         switch self {
         case .exercise, .workoutItem:
             return .get
-        case .workout, .updateWorkout:
+        case .createWorkout, .updateWorkout:
             return .post
         case .deleteWorkout:
             return .delete
@@ -57,24 +57,12 @@ extension ExerciseTracking: TargetType {
         switch self {
         case .exercise, .workoutItem, .deleteWorkout:
             return .requestPlain
-        case .workout(let iterationsCount,
-                      let timeStamp,
-                      let name):
-            var params = [String: Any]()
-            params["name"] = name
-            params["timestamp"] = timeStamp
-            params["iterations_count"] = iterationsCount
-            params["pause_before_item"] = 0
-            params["user_id"] = currentUserId
+        case .createWorkout(let model):
+            let params = getParameters(model: model)
             
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .updateWorkout(let model):
-            var params = [String: Any]()
-            params["name"] = model.name
-            params["timestamp"] = model.timestamp
-            params["iterations_count"] = model.iterationsCount
-            params["pause_before_item"] = 0
-            params["user_id"] = currentUserId
+            let params = getParameters(model: model)
 
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
@@ -86,5 +74,16 @@ extension ExerciseTracking: TargetType {
 
     var sampleData: Data {
         return Data()
+    }
+
+    private func getParameters(model: WorkoutItemModel) -> [String: Any] {
+        var params = [String: Any]()
+        params["name"] = model.name
+        params["timestamp"] = model.timestamp
+        params["iterations_count"] = model.iterationsCount
+        params["pause_before_item"] = 0
+        params["user_id"] = currentUserId
+        
+        return params
     }
 }

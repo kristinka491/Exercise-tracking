@@ -16,10 +16,6 @@ class WorkoutStatisticsTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
     func setUpCell(_ exercise: WorkoutItemModel) {
         quantityOfIterationsLabel.text = "\(exercise.iterationsCount ?? 0)"
         dateLabel.text = dateFormatter(timestamp: exercise.timestamp)
