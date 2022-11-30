@@ -20,5 +20,4 @@ class ExerciseCollectionViewCell: UICollectionViewCell {
         exerciseNameLabel.text = Exercise(rawValue: exerciseName)?.newNames
         exerciseImageView.image = Exercise(rawValue: exerciseName)?.collectionImage
     }
-
 }
