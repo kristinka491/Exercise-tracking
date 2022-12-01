@@ -1,5 +1,5 @@
-# Exercise-tracking
-> Exercise-tracking is an IOS app that helps you to record and track your daily activity. 
+# Exercise tracking
+> Exercise tracking is an IOS app that helps you to record and track your daily activity. 
 
 
 ## Table of Contents
